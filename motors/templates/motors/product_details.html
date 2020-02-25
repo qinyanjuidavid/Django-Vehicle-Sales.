@@ -1,0 +1,49 @@
+{%extends 'accounts/base.html'%}
+{%load icons%}
+{%block content%}
+<div class="body p-5">
+  <div class="container">
+    <div class="jumbotron">
+      <div class="card-header bg-dark">
+        <legend style=color:lavender;>Details.</legend>
+        </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+          <img src="{{vehicle.image.url}}" alt="Edit">
+          </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card p-2">
+              <div class="card-header text-white" style=background-color:dodgerblue;>
+            <h6 align=center>{{vehicle.brand_name}}</h6>
+            </div>
+            <div class="price m-1">
+            <b>Price: </b> ${{vehicle.price}}
+            </div>
+            <div class="Type m-1">
+              <b>Type: </b>{{vehicle.type}}
+              </div>
+              <div class="category m-1">
+                <b>Category: </b>{{vehicle.category}}
+                </div>
+                <div class="description m-1">
+                  <b>description: </b>{{vehicle.description}}
+                  </div>
+                  <div class="dates m-1">
+                    {%if vehicle.date_updated%}
+                    <b>Date Added: </b>{{vehicle.date_updated}}
+                    {%else%}
+                    <b>Date Updated: </b>{{vehile.date_added}}
+                    {%endif%}
+                    </div>
+                    <div class="button m-1" align=center>
+                      <a href="{%url 'motors:add_wish' vehicle.id%}"><button class="btn btn-outline-warning col-sm-10">Add To WishList</button></a>
+                      </div>
+            </div>
+            </div>
+        </div>
+</div>
+</div>
+  </div>
+{%endblock%}

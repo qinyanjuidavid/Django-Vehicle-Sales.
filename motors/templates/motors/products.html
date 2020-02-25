@@ -1,0 +1,32 @@
+{%extends 'accounts/base.html'%}
+{%block content%}
+<div class="body p-5">
+<div class="card-header text-white" style=background-color:navy;>
+<h1 align=center>Car Sales And Services.</h1>
+  </div>
+  <div class="container p-1">
+    <div class="row">
+      {%for vehicle in vehicle_obj%}
+      <div class="col-sm-3">
+      <div class="card" align=center>
+        <div class="card-header text-white" style=background-color:dodgerblue;>
+      <h5>{{vehicle.brand_name}}</h5>
+      </div>
+        <img src="{{vehicle.image.url}}" height="290" alt="Day">
+        <div class="text-muted">
+        {{vehicle.type}}
+        </div>
+        <div class="price">
+          <kbd class="bg-primary">${{vehicle.price}}</kbd>
+          </div>
+          <div class="button p-1">
+            <a href="{%url 'motors:details' vehicle.id%}"><button class="btn btn-outline-primary col-sm-12">View Details</button></a>
+            </div>
+      </div>
+      </div>
+      {%endfor%}
+      </div>
+    </div>
+    </div>
+
+{%endblock%}
